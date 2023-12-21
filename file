@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void getelement(vector<int>&ans,TreeNode* root)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        ans.push_back(root->val);
+        getelement(ans,root->left);
+        getelement(ans,root->right);
+        
+    }
+    vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
+        vector<int>ans;
+       getelement(ans,root1);
+       getelement(ans,root2);
+      sort(ans.begin(),ans.end());
+      return ans;
+    }
+};
